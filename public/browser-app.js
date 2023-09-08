@@ -1,8 +1,8 @@
-const tasksDOM = document.querySelector('.tasks') //tasks div
-const loadingDOM = document.querySelector('.loading-text') // p tag with  ...loading text
-const formDOM = document.querySelector('.task-form') // the form with input elements 
-const taskInputDOM = document.querySelector('.task-input') //task input box
-const formAlertDOM = document.querySelector('.form-alert') // alert div tag
+const tasksDOM = document.querySelector('.tasks')
+const loadingDOM = document.querySelector('.loading-text')
+const formDOM = document.querySelector('.task-form')
+const taskInputDOM = document.querySelector('.task-input')
+const formAlertDOM = document.querySelector('.form-alert')
 // Load tasks from /api/tasks
 const showTasks = async () => {
   loadingDOM.style.visibility = 'visible'
@@ -71,7 +71,7 @@ formDOM.addEventListener('submit', async (e) => {
 
   try {
     await axios.post('/api/v1/tasks', { name })
-    showTasks()
+    showTasks();
     taskInputDOM.value = ''
     formAlertDOM.style.display = 'block'
     formAlertDOM.textContent = `success, task added`
@@ -83,5 +83,5 @@ formDOM.addEventListener('submit', async (e) => {
   setTimeout(() => {
     formAlertDOM.style.display = 'none'
     formAlertDOM.classList.remove('text-success')
-  }, 3000)
+  }, 3000);
 })
